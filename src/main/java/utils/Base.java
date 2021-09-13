@@ -33,7 +33,7 @@ public class Base {
 
     public WebDriver initializeDriver()  {
         String browserName = properties.getProperty("browser");
-        System.out.println(browserName);
+       // System.out.println(browserName);
 
         if (browserName.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", properties.getProperty("chromeDriverPath"));
@@ -48,13 +48,4 @@ public class Base {
         return driver;
     }
 
-//    public String getScreenShotPath(String testCaseName) throws IOException {
-//        TakesScreenshot ts = (TakesScreenshot) driver;
-//        File source = ts.getScreenshotAs(OutputType.FILE);
-//      //  System.out.println("---> " + System.getProperty("user.dir"));
-//        String destinationFile = System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
-//        FileUtils.copyFile(source, new File(destinationFile));
-//        return destinationFile;
-//
-//    }
 }
