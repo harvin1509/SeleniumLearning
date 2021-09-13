@@ -23,7 +23,7 @@ public class Base {
         // url -"/Users//harveen//Downloads//E2EProject//src//main//java//resources
         properties = new Properties();
         //    FileInputStream fileinputstream=new FileInputStream("src//main//java//resources//data.properties");
-        FileInputStream fileinputstream = new FileInputStream("src/main/java/resources/data.properties");
+        FileInputStream fileinputstream = new FileInputStream("src/main/resources/data.properties");
         properties.load(fileinputstream);
 
         String browserName = properties.getProperty("browser");
