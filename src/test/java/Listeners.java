@@ -1,6 +1,6 @@
-import java.io.File;
-import java.io.IOException;
-
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -8,13 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-
-import utils.ExtentReporterNG;
 import utils.Base;
+import utils.ExtentReporterNG;
+
+import java.io.File;
+import java.io.IOException;
 
 
 public class Listeners extends Base implements ITestListener {
@@ -26,7 +24,6 @@ public class Listeners extends Base implements ITestListener {
         // TODO Auto-generated method stub
         test = extent.createTest(result.getMethod().getMethodName());
         extentTest.set(test);
-
     }
 
     public void onTestSuccess(ITestResult result) {
@@ -36,23 +33,12 @@ public class Listeners extends Base implements ITestListener {
 
     public void onTestFailure(ITestResult result) {
         // TODO Auto-generated method stub
-        //Screenshot
         extentTest.get().fail(result.getThrowable());
-        WebDriver driver =null;
-        String testMethodName =result.getMethod().getMethodName();
+        String testMethodName = result.getMethod().getMethodName();
 
         try {
-            driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-        } catch(Exception e)
-        {
-            System.out.println("nai milea");
-        }
-        try {
-            String imagePath=getScreenShotPath(testMethodName,driver);
-            extentTest.get().addScreenCaptureFromPath(imagePath,result.getMethod().getMethodName());
-            getScreenShotPath(testMethodName,driver);
-            //extentTest.get().addScreenCaptureFromPath(getScreenShotPath(testMethodName,driver), result.getMethod().getMethodName());
-
+            String imagePath = getScreenShotPath(testMethodName, driver);
+            extentTest.get().addScreenCaptureFromPath(imagePath, result.getMethod().getMethodName());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -85,9 +71,5 @@ public class Listeners extends Base implements ITestListener {
         String destinationFile = System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
         FileUtils.copyFile(source, new File(destinationFile));
         return destinationFile;
-
-
     }
-
-
 }

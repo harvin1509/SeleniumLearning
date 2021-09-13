@@ -8,14 +8,13 @@ public class HomePage {
     public WebDriver driver;
 
     public HomePage(WebDriver driver) {
-        this.driver= driver;
+        this.driver = driver;
     }
 
-    By title=By.cssSelector("span[class='central-textlogo__image sprite svg-Wikipedia_wordmark']");
+    By title = By.cssSelector("span[class='central-textlogo__image sprite svg-Wikipedia_wordmark']");
 
 
-    public WebElement getTitle()
-    {
+    public WebElement getTitle() {
         return driver.findElement(title);
     }
 
