@@ -13,8 +13,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import resources.ExtentReporterNG;
-import resources.Base;
+import utils.ExtentReporterNG;
+import utils.Base;
 
 
 public class Listeners extends Base implements ITestListener {
