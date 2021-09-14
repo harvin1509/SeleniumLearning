@@ -6,7 +6,7 @@ import utils.Base;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class InputFormTest extends Base {
+public class InputFormTest extends BasicFirstFormTest {
     public static Logger log= LogManager.getLogger(InputFormTest.class.getName());
     @Test
     public void addValidMessage() {
@@ -18,9 +18,5 @@ public class InputFormTest extends Base {
         Assert.assertEquals(home.getTitle().getText(),"hey");
     }
 
-    @AfterTest
-    public void teardown() {
-        driver.close();
-        log.info("Driver is closed");
-    }
+
 }

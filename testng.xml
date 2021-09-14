@@ -5,9 +5,14 @@
         <listener class-name="Listeners"/>
     </listeners>
 
-    <test name="Validating User login">
+<!--    <test name="Validating User login">-->
+<!--        <classes>-->
+<!--            <class name="InputFormTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Validating User login1">
         <classes>
-            <class name="InputFormTest"/>
+            <class name="BasicFirstFormTest"/>
         </classes>
     </test>
 
